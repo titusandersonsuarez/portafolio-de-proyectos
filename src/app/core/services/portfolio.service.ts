@@ -24,20 +24,23 @@ export class PortfolioService {
       featured: true
     },
     {
+      id: 'prescriptions-app',
+      title: 'Sistema de Prescripciones Médicas',
+      description:
+        'Plataforma full stack para gestión de prescripciones: doctores las emiten, pacientes las consumen y admins supervisan. ' +
+        'Incluye PDFs con QR para verificación, dashboard con métricas y 3 roles con acceso aislado mediante JWT.',
+      techStack: ['Next.js 15', 'React 19', 'NestJS 11', 'Prisma 6', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
+      type: 'fullstack',
+      githubUrl: 'https://github.com/titusandersonsuarez/prueba-fuill-stack',
+      featured: true
+    },
+    {
       id: 'traffic-analysis',
       title: 'Análisis Accidentes Bucaramanga',
       description: 'Estudio exploratorio de accidentalidad vial en la ciudad.',
       techStack: ['Python', 'Pandas', 'Matplotlib'],
       type: 'embeddable',
       embedPath: 'projects/traffic-analysis.html',
-      featured: false
-    },
-    {
-      id: 'ordento-api',
-      title: 'Ordento API',
-      description: 'API de gestión de órdenes para el sector salud.',
-      techStack: ['NestJS', 'Prisma', 'PostgreSQL', 'Docker'],
-      type: 'backend',
       featured: false
     }
   ]);
@@ -92,9 +95,12 @@ export class PortfolioService {
     { name: 'Spring Boot', category: 'framework', iconName: 'spring',      level: 4 },
     { name: '.NET Core',   category: 'framework', iconName: 'dotnetcore',  level: 3 },
     { name: 'NestJS',      category: 'framework', iconName: 'nestjs',      level: 3 },
-    { name: 'PostgreSQL',  category: 'database',  iconName: 'postgresql',  level: 4 },
-    { name: 'Docker',      category: 'tool',      iconName: 'docker',      level: 3 },
-    { name: 'Git',         category: 'tool',      iconName: 'git',         level: 4 }
+    { name: 'PostgreSQL',  category: 'database',  iconName: 'postgresql',         level: 4 },
+    { name: 'MySQL',       category: 'database',  iconName: 'mysql',              level: 3 },
+    { name: 'SQL Server',  category: 'database',  iconName: 'microsoftsqlserver', level: 3 },
+    { name: 'MongoDB',     category: 'database',  iconName: 'mongodb',            level: 2 },
+    { name: 'Docker',      category: 'tool',      iconName: 'docker',             level: 3 },
+    { name: 'Git',         category: 'tool',      iconName: 'git',                level: 4 }
   ]);
 
   readonly projects = this._projects.asReadonly();
