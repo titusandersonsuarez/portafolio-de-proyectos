@@ -44,19 +44,42 @@ export class PortfolioService {
 
   private readonly _experiences = signal<Experience[]>([
     {
-      role: 'Junior Software Developer',
+      role: 'Junior Full Stack Developer',
       company: 'CreandoSoft',
       period: '2024 — Presente',
-      description: 'Desarrollo de aplicaciones web en el sector salud.',
+      description:
+        'Desarrollo y mantenimiento de SIE y HCE, software empresarial para EPS e IPS del sector salud en Colombia, ' +
+        'cubriendo flujos clínicos, administrativos y de facturación.',
       type: 'work',
-      techStack: ['Java', 'Spring Boot', 'Angular', '.NET Core', 'PostgreSQL', 'Docker']
+      techStack: ['Java', 'Spring Boot', '.NET Core', 'Angular', 'PostgreSQL', 'Docker', 'Git'],
+      systems: ['SIE', 'HCE'],
+      achievements: [
+        'Implementación de endpoints REST en Java/Spring Boot y .NET Core para nuevas funcionalidades y módulos de los productos.',
+        'Optimización de consultas SQL en PostgreSQL, reduciendo tiempos de respuesta en reportes con alto volumen de datos.',
+        'Refactorización de procesos críticos a operaciones asíncronas, mejorando el rendimiento percibido por el usuario.',
+        'Diseño y generación de reportes operativos y financieros para áreas administrativas y clínicas.',
+        'Participación en revisiones de código y propuestas de mejora en procesos del equipo de desarrollo.'
+      ],
+      media: {
+        type: 'image',
+        url: 'img/certificado.jpeg',
+        label: 'Certificado CreandoSoft'
+      }
     },
     {
       role: 'Ingeniería de Sistemas',
       company: 'Unidades Tecnológicas de Santander (UTS)',
       period: '2021 — 2026',
-      description: 'Último semestre. Énfasis en desarrollo de software y bases de datos.',
-      type: 'education'
+      description:
+        'Formación profesional con énfasis en desarrollo de software, bases de datos relacionales, ' +
+        'arquitectura de aplicaciones y análisis de algoritmos. Último semestre en curso.',
+      type: 'education',
+      achievements: [
+        'Proyectos académicos en Java aplicando patrones de diseño (GoF) y principios SOLID.',
+        'Modelado y administración de bases de datos relacionales (PostgreSQL, MySQL).',
+        'Análisis exploratorio de datos con Python (Pandas, Matplotlib).'
+      ],
+      media: { type: 'image', url: 'img/diploma.jpeg', label: 'Diploma UTS' }
     }
   ]);
 
@@ -64,7 +87,7 @@ export class PortfolioService {
     { name: 'Java',        category: 'language',  iconName: 'java',        level: 4 },
     { name: 'TypeScript',  category: 'language',  iconName: 'typescript',  level: 4 },
     { name: 'C#',          category: 'language',  iconName: 'csharp',      level: 3 },
-    { name: 'Python',      category: 'language',  iconName: 'python',      level: 3 },
+    { name: 'Python',      category: 'language',  iconName: 'python',      level: 2 },
     { name: 'Angular',     category: 'framework', iconName: 'angular',     level: 4 },
     { name: 'Spring Boot', category: 'framework', iconName: 'spring',      level: 4 },
     { name: '.NET Core',   category: 'framework', iconName: 'dotnetcore',  level: 3 },

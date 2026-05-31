@@ -43,6 +43,26 @@ import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
               Contactar
             </a>
           </div>
+
+          @if (cvs.length > 0) {
+            <p class="mt-6 text-sm text-slate-500 dark:text-slate-400 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span class="inline-flex items-center gap-1.5 font-medium">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Descargar CV:
+              </span>
+              @for (cv of cvs; track cv.url; let last = $last) {
+                <a [href]="cv.url" target="_blank" rel="noopener"
+                   class="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+                  {{ cv.label }}
+                </a>
+                @if (!last) { <span class="text-slate-300 dark:text-slate-600">·</span> }
+              }
+            </p>
+          }
         </div>
 
         <div class="relative justify-self-center md:justify-self-end">
@@ -66,4 +86,5 @@ import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
 export class Hero {
   protected readonly info = PERSONAL_INFO;
   protected readonly photoUrl = PERSONAL_INFO.photoUrl;
+  protected readonly cvs = PERSONAL_INFO.cvs;
 }
