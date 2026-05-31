@@ -7,6 +7,15 @@ export const PERSONAL_INFO = {
   email: 'titusandersonsuarez@gmail.com',
   github: 'https://github.com/titusandersonsuarez',
   linkedin: 'https://www.linkedin.com/in/anderson-suarez-150597239',
+  whatsapp: {
+    number: '573188785198',
+    display: '+57 318 878 5198',
+    url: 'https://wa.me/573188785198'
+  },
+  instagram: {
+    handle: '@6393.anderson',
+    url: 'https://www.instagram.com/6393.anderson/'
+  },
   cvs: [
     { label: 'Español', url: 'pdf/CV_Anderson_Suarez_ATS.pdf' },
     { label: 'English', url: 'pdf/CV_2026_ENGLISH%20(2).pdf' }
