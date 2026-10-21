@@ -1,6 +1,8 @@
 import { Component, computed, inject } from '@angular/core';
 
 import { Skill, SkillCategory } from '../../../../core/models/skill.model';
+import { TranslationKey } from '../../../../core/i18n/translations';
+import { LanguageService } from '../../../../core/services/language.service';
 import { PortfolioService } from '../../../../core/services/portfolio.service';
 import { ScrollAnimateDirective } from '../../../../shared/directives/scroll-animate.directive';
 
@@ -10,12 +12,12 @@ interface SkillGroup {
   skills: Skill[];
 }
 
-const CATEGORY_LABELS: Record<SkillCategory, string> = {
-  language:  'Lenguajes',
-  framework: 'Frameworks',
-  database:  'Bases de datos',
-  tool:      'Herramientas',
-  cloud:     'Cloud'
+const CATEGORY_LABELS: Record<SkillCategory, TranslationKey> = {
+  language:  'skills.language',
+  framework: 'skills.framework',
+  database:  'skills.database',
+  tool:      'skills.tool',
+  cloud:     'skills.cloud'
 };
 
 const CATEGORY_ORDER: SkillCategory[] = ['language', 'framework', 'database', 'tool', 'cloud'];
@@ -31,7 +33,7 @@ const CATEGORY_ORDER: SkillCategory[] = ['language', 'framework', 'database', 't
         Skills
       </p>
       <h2 class="mt-2 text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50">
-        Tecnologías con las que trabajo.
+        {{ i18n.t('skills.title') }}
       </h2>
 
       <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -68,13 +70,15 @@ const CATEGORY_ORDER: SkillCategory[] = ['language', 'framework', 'database', 't
 })
 export class SkillsGrid {
   private readonly portfolio = inject(PortfolioService);
+  protected readonly i18n = inject(LanguageService);
 
   protected readonly groups = computed<SkillGroup[]>(() => {
     const skills = this.portfolio.skills();
+    this.i18n.lang();
     return CATEGORY_ORDER
       .map(category => ({
         category,
-        label: CATEGORY_LABELS[category],
+        label: this.i18n.t(CATEGORY_LABELS[category]),
         skills: skills.filter(s => s.category === category)
       }))
       .filter(group => group.skills.length > 0);

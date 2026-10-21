@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { PERSONAL_INFO } from '../../core/constants/personal-info';
+import { LanguageService } from '../../core/services/language.service';
 import { ContactForm } from './components/contact-form/contact-form';
 
 @Component({
@@ -9,21 +10,20 @@ import { ContactForm } from './components/contact-form/contact-form';
   template: `
     <section class="mx-auto max-w-5xl px-4 py-16">
       <p class="text-brand-600 dark:text-brand-400 font-semibold tracking-wide text-sm">
-        Hablemos
+        {{ i18n.t('contact.eyebrow') }}
       </p>
       <h1 class="mt-2 text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50">
-        Contacto
+        {{ i18n.t('contact.title') }}
       </h1>
       <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-2xl">
-        ¿Tienes un proyecto en mente, una pregunta técnica o una oportunidad laboral?
-        Escríbeme y te respondo en máximo 48 horas.
+        {{ i18n.t('contact.subtitle') }}
       </p>
 
       <div class="mt-10 grid gap-8 md:grid-cols-[1fr_1.4fr]">
 
         <aside class="space-y-3">
           <h2 class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400">
-            Encuéntrame en
+            {{ i18n.t('contact.findMe') }}
           </h2>
 
           <a [href]="'mailto:' + info.email"
@@ -78,7 +78,7 @@ import { ContactForm } from './components/contact-form/contact-form';
               </span>
               <div class="min-w-0">
                 <p class="text-xs text-slate-500 dark:text-slate-400">LinkedIn</p>
-                <p class="text-sm font-medium text-slate-900 dark:text-slate-100">Perfil profesional</p>
+                <p class="text-sm font-medium text-slate-900 dark:text-slate-100">{{ i18n.t('contact.linkedinProfile') }}</p>
               </div>
             </a>
           }
@@ -126,7 +126,7 @@ import { ContactForm } from './components/contact-form/contact-form';
               </svg>
             </span>
             <div>
-              <p class="text-xs text-slate-500 dark:text-slate-400">Ubicación</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">{{ i18n.t('contact.location') }}</p>
               <p class="text-sm font-medium text-slate-900 dark:text-slate-100">{{ info.location }}</p>
             </div>
           </div>
@@ -138,5 +138,6 @@ import { ContactForm } from './components/contact-form/contact-form';
   `
 })
 export class ContactPage {
+  protected readonly i18n = inject(LanguageService);
   protected readonly info = PERSONAL_INFO;
 }

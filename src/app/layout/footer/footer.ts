@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { PERSONAL_INFO } from '../../core/constants/personal-info';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -71,7 +72,7 @@ import { PERSONAL_INFO } from '../../core/constants/personal-info';
         <div class="text-sm flex flex-col md:flex-row items-center justify-between gap-2
                     text-slate-500 dark:text-slate-400">
           <p>&copy; {{ year }} {{ name }} — Bucaramanga, Colombia</p>
-          <p class="text-slate-400 dark:text-slate-500">Built with Angular {{ angularVersion }} + Tailwind</p>
+          <p class="text-slate-400 dark:text-slate-500">{{ i18n.t('footer.builtWith') }}</p>
         </div>
       </div>
     </footer>
@@ -81,5 +82,5 @@ export class Footer {
   protected readonly year = new Date().getFullYear();
   protected readonly name = PERSONAL_INFO.name;
   protected readonly info = PERSONAL_INFO;
-  protected readonly angularVersion = 21;
+  protected readonly i18n = inject(LanguageService);
 }

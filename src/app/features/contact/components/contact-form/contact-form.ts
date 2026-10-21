@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { LanguageService } from '../../../../core/services/language.service';
 import { environment } from '../../../../../environments/environment';
 
 type SubmitStatus = 'idle' | 'success' | 'error';
@@ -16,7 +17,7 @@ type SubmitStatus = 'idle' | 'success' | 'error';
 
       <div>
         <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">
-          Nombre
+          {{ i18n.t('form.name') }}
         </label>
         <input id="name" type="text" formControlName="name" autocomplete="name"
                class="mt-1 block w-full px-3 py-2 rounded-lg border text-sm
@@ -24,16 +25,16 @@ type SubmitStatus = 'idle' | 'success' | 'error';
                       focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500
                       dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100"/>
         @if (showError('name', 'required')) {
-          <p class="mt-1 text-xs text-red-600 dark:text-red-400">El nombre es obligatorio.</p>
+          <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ i18n.t('form.nameRequired') }}</p>
         }
         @if (showError('name', 'minlength')) {
-          <p class="mt-1 text-xs text-red-600 dark:text-red-400">Mínimo 2 caracteres.</p>
+          <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ i18n.t('form.nameMin') }}</p>
         }
       </div>
 
       <div>
         <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">
-          Email
+          {{ i18n.t('form.email') }}
         </label>
         <input id="email" type="email" formControlName="email" autocomplete="email"
                class="mt-1 block w-full px-3 py-2 rounded-lg border text-sm
@@ -41,16 +42,16 @@ type SubmitStatus = 'idle' | 'success' | 'error';
                       focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500
                       dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100"/>
         @if (showError('email', 'required')) {
-          <p class="mt-1 text-xs text-red-600 dark:text-red-400">El email es obligatorio.</p>
+          <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ i18n.t('form.emailRequired') }}</p>
         }
         @if (showError('email', 'email')) {
-          <p class="mt-1 text-xs text-red-600 dark:text-red-400">Formato de email inválido.</p>
+          <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ i18n.t('form.emailInvalid') }}</p>
         }
       </div>
 
       <div>
         <label for="subject" class="block text-sm font-medium text-slate-700 dark:text-slate-300">
-          Asunto
+          {{ i18n.t('form.subject') }}
         </label>
         <input id="subject" type="text" formControlName="subject"
                class="mt-1 block w-full px-3 py-2 rounded-lg border text-sm
@@ -58,13 +59,13 @@ type SubmitStatus = 'idle' | 'success' | 'error';
                       focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500
                       dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100"/>
         @if (showError('subject', 'required')) {
-          <p class="mt-1 text-xs text-red-600 dark:text-red-400">El asunto es obligatorio.</p>
+          <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ i18n.t('form.subjectRequired') }}</p>
         }
       </div>
 
       <div>
         <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300">
-          Mensaje
+          {{ i18n.t('form.message') }}
         </label>
         <textarea id="message" formControlName="message" rows="5"
                   class="mt-1 block w-full px-3 py-2 rounded-lg border text-sm resize-y
@@ -72,23 +73,23 @@ type SubmitStatus = 'idle' | 'success' | 'error';
                          focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500
                          dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100"></textarea>
         @if (showError('message', 'required')) {
-          <p class="mt-1 text-xs text-red-600 dark:text-red-400">El mensaje es obligatorio.</p>
+          <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ i18n.t('form.messageRequired') }}</p>
         }
         @if (showError('message', 'minlength')) {
-          <p class="mt-1 text-xs text-red-600 dark:text-red-400">Mínimo 10 caracteres.</p>
+          <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ i18n.t('form.messageMin') }}</p>
         }
       </div>
 
       @if (status() === 'success') {
         <p class="text-sm p-3 rounded-lg bg-green-50 text-green-700 border border-green-200
                   dark:bg-green-900/30 dark:text-green-300 dark:border-green-800">
-          ✓ Mensaje enviado. Te contesto pronto.
+          {{ i18n.t('form.success') }}
         </p>
       }
       @if (status() === 'error') {
         <p class="text-sm p-3 rounded-lg bg-red-50 text-red-700 border border-red-200
                   dark:bg-red-900/30 dark:text-red-300 dark:border-red-800">
-          Hubo un error al enviar. Intenta de nuevo o escríbeme directo al email.
+          {{ i18n.t('form.error') }}
         </p>
       }
 
@@ -100,9 +101,9 @@ type SubmitStatus = 'idle' | 'success' | 'error';
           <svg class="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 12a9 9 0 1 1-6.219-8.56" stroke-linecap="round"/>
           </svg>
-          Enviando…
+          {{ i18n.t('form.sending') }}
         } @else {
-          Enviar mensaje
+          {{ i18n.t('form.send') }}
         }
       </button>
     </form>
@@ -110,6 +111,7 @@ type SubmitStatus = 'idle' | 'success' | 'error';
 })
 export class ContactForm {
   private readonly fb = inject(FormBuilder);
+  protected readonly i18n = inject(LanguageService);
 
   protected readonly form = this.fb.nonNullable.group({
     name:    ['', [Validators.required, Validators.minLength(2)]],

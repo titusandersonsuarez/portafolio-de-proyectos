@@ -1,11 +1,13 @@
-import { Component, computed, input, output } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
 
+import { TranslationKey } from '../../../../core/i18n/translations';
 import { Project, ProjectType } from '../../../../core/models/project.model';
+import { LanguageService } from '../../../../core/services/language.service';
 
-const TYPE_LABEL: Record<ProjectType, string> = {
-  embeddable: 'Embebido',
-  backend:    'Backend',
-  fullstack:  'Full Stack'
+const TYPE_LABEL: Record<ProjectType, TranslationKey> = {
+  embeddable: 'pf.type.embeddable',
+  backend:    'pf.type.backend',
+  fullstack:  'pf.type.fullstack'
 };
 
 @Component({
@@ -29,7 +31,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
-            Destacado
+            {{ i18n.t('pf.featured') }}
           </span>
         }
       </header>
@@ -53,7 +55,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
 
       <div class="mt-4 text-sm font-medium text-brand-600 dark:text-brand-400 inline-flex items-center gap-1
                   opacity-0 group-hover:opacity-100 transition-opacity">
-        Ver detalle
+        {{ i18n.t('pf.details') }}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
         </svg>
@@ -64,6 +66,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
 export class ProjectCard {
   readonly project = input.required<Project>();
   readonly open = output<Project>();
+  protected readonly i18n = inject(LanguageService);
 
-  protected readonly typeLabel = computed(() => TYPE_LABEL[this.project().type]);
+  protected readonly typeLabel = computed(() => this.i18n.t(TYPE_LABEL[this.project().type]));
 }

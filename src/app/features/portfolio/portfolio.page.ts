@@ -3,6 +3,7 @@ import { Component, HostListener, computed, effect, inject, signal } from '@angu
 
 import { Project } from '../../core/models/project.model';
 import { PortfolioService } from '../../core/services/portfolio.service';
+import { LanguageService } from '../../core/services/language.service';
 import { ProjectCard } from './components/project-card/project-card';
 import { ProjectPanel } from './components/project-panel/project-panel';
 import { TechFilter } from './components/tech-filter/tech-filter';
@@ -13,13 +14,13 @@ import { TechFilter } from './components/tech-filter/tech-filter';
   template: `
     <section class="mx-auto max-w-6xl px-4 py-16">
       <p class="text-brand-600 dark:text-brand-400 font-semibold tracking-wide text-sm">
-        Trabajos
+        {{ i18n.t('pf.eyebrow') }}
       </p>
       <h1 class="mt-2 text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50">
-        Portafolio
+        {{ i18n.t('pf.title') }}
       </h1>
       <p class="mt-2 text-slate-600 dark:text-slate-400">
-        Una selección de proyectos en los que he trabajado. Haz click para ver el detalle.
+        {{ i18n.t('pf.subtitle') }}
       </p>
 
       <div class="mt-8">
@@ -42,7 +43,7 @@ import { TechFilter } from './components/tech-filter/tech-filter';
         </ul>
       } @else {
         <p class="mt-12 text-center text-slate-500 dark:text-slate-400">
-          Ningún proyecto coincide con los filtros activos.
+          {{ i18n.t('pf.empty') }}
         </p>
       }
     </section>
@@ -53,6 +54,7 @@ import { TechFilter } from './components/tech-filter/tech-filter';
   `
 })
 export class PortfolioPage {
+  protected readonly i18n = inject(LanguageService);
   private readonly portfolio = inject(PortfolioService);
   private readonly document = inject(DOCUMENT);
 

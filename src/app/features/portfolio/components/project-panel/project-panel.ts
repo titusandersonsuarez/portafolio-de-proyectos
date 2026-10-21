@@ -1,12 +1,14 @@
 import { Component, computed, inject, input, output } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
+import { TranslationKey } from '../../../../core/i18n/translations';
 import { Project, ProjectType } from '../../../../core/models/project.model';
+import { LanguageService } from '../../../../core/services/language.service';
 
-const TYPE_LABEL: Record<ProjectType, string> = {
-  embeddable: 'Proyecto embebido',
-  backend:    'Proyecto backend',
-  fullstack:  'Proyecto full stack'
+const TYPE_LABEL: Record<ProjectType, TranslationKey> = {
+  embeddable: 'pf.panel.embeddable',
+  backend:    'pf.panel.backend',
+  fullstack:  'pf.panel.fullstack'
 };
 
 @Component({
@@ -33,7 +35,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
       [class]="isOpen ? 'translate-x-0' : 'translate-x-full'"
       role="dialog"
       aria-modal="true"
-      [attr.aria-label]="p?.title ?? 'Detalle de proyecto'">
+      [attr.aria-label]="p?.title ?? i18n.t('pf.panel.default')">
 
       @if (p) {
         <header class="flex items-start justify-between gap-4 p-6 border-b
@@ -49,7 +51,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
           <button
             type="button"
             (click)="close.emit()"
-            aria-label="Cerrar"
+            [attr.aria-label]="i18n.t('pf.panel.close')"
             class="flex-shrink-0 p-2 rounded-lg
                    text-slate-500 hover:bg-slate-100
                    dark:text-slate-400 dark:hover:bg-slate-800
@@ -81,7 +83,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
           @if (p.type === 'embeddable' && safeEmbedUrl()) {
             <div>
               <h3 class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 mb-2">
-                Demo en vivo
+                {{ i18n.t('pf.panel.liveDemo') }}
               </h3>
               <div class="aspect-video w-full rounded-lg overflow-hidden border
                           border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
@@ -99,9 +101,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
             <div class="p-4 rounded-lg border border-dashed
                         border-slate-300 dark:border-slate-700
                         text-sm text-slate-600 dark:text-slate-400">
-              Este proyecto es {{ p.type === 'backend' ? 'una API / servicio backend' : 'una aplicación full stack' }}.
-              Para verlo en acción revisa el código fuente en GitHub
-              @if (p.demoUrl) { o abre la demo en vivo }.
+              {{ p.type === 'backend' ? i18n.t('pf.panel.isBackend') : i18n.t('pf.panel.isFullstack') }}
             </div>
           }
         </div>
@@ -117,7 +117,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.11.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
               </svg>
-              Código fuente
+              {{ i18n.t('pf.panel.source') }}
             </a>
           }
           @if (p.demoUrl) {
@@ -126,7 +126,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
                       border-slate-300 text-slate-700 hover:bg-slate-100
                       dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800
                       transition-colors">
-              Abrir demo
+              {{ i18n.t('pf.panel.openDemo') }}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
               </svg>
@@ -134,7 +134,7 @@ const TYPE_LABEL: Record<ProjectType, string> = {
           }
           @if (!p.githubUrl && !p.demoUrl) {
             <p class="text-sm text-slate-400 dark:text-slate-500 italic">
-              Enlaces de código y demo pendientes de completar.
+              {{ i18n.t('pf.panel.noLinks') }}
             </p>
           }
         </footer>
@@ -144,13 +144,14 @@ const TYPE_LABEL: Record<ProjectType, string> = {
 })
 export class ProjectPanel {
   private readonly sanitizer = inject(DomSanitizer);
+  protected readonly i18n = inject(LanguageService);
 
   readonly project = input.required<Project | null>();
   readonly close = output<void>();
 
   protected readonly typeLabel = computed(() => {
     const p = this.project();
-    return p ? TYPE_LABEL[p.type] : '';
+    return p ? this.i18n.t(TYPE_LABEL[p.type]) : '';
   });
 
   protected readonly safeEmbedUrl = computed<SafeResourceUrl | null>(() => {

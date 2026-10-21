@@ -1,6 +1,7 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, inject } from '@angular/core';
 
 import { Experience } from '../../../../core/models/experience.model';
+import { LanguageService } from '../../../../core/services/language.service';
 
 @Component({
   selector: 'app-timeline-item',
@@ -23,7 +24,7 @@ import { Experience } from '../../../../core/models/experience.model';
             [class]="isWork()
               ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300'
               : 'bg-amber-50 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300'">
-            {{ isWork() ? 'Trabajo' : 'Educación' }}
+            {{ isWork() ? i18n.t('exp.work') : i18n.t('exp.education') }}
           </span>
           <time class="text-xs text-slate-500 dark:text-slate-400 font-medium">
             {{ data().period }}
@@ -41,7 +42,7 @@ import { Experience } from '../../../../core/models/experience.model';
         @if (data().systems?.length) {
           <div class="mt-4">
             <h4 class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 mb-2">
-              Productos
+              {{ i18n.t('exp.products') }}
             </h4>
             <ul class="flex flex-wrap gap-1.5">
               @for (system of data().systems; track system) {
@@ -56,7 +57,7 @@ import { Experience } from '../../../../core/models/experience.model';
         @if (data().achievements?.length) {
           <div class="mt-4">
             <h4 class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 mb-2">
-              {{ isWork() ? 'Logros y responsabilidades' : 'Áreas de enfoque' }}
+              {{ isWork() ? i18n.t('exp.achievements') : i18n.t('exp.focus') }}
             </h4>
             <ul class="space-y-1.5">
               @for (item of data().achievements; track item) {
@@ -100,7 +101,7 @@ import { Experience } from '../../../../core/models/experience.model';
                      loading="lazy"/>
               </a>
               <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
-                Click para ver en tamaño completo
+                {{ i18n.t('exp.clickToEnlarge') }}
               </p>
             } @else {
               <a [href]="media.url" target="_blank" rel="noopener"
@@ -112,7 +113,7 @@ import { Experience } from '../../../../core/models/experience.model';
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                   <polyline points="14 2 14 8 20 8"/>
                 </svg>
-                Abrir {{ media.label }}
+                {{ i18n.t('exp.open') }} {{ media.label }}
               </a>
             }
           </div>
@@ -122,6 +123,7 @@ import { Experience } from '../../../../core/models/experience.model';
   `
 })
 export class TimelineItem {
+  protected readonly i18n = inject(LanguageService);
   readonly data = input.required<Experience>();
 
   protected readonly isWork = computed(() => this.data().type === 'work');

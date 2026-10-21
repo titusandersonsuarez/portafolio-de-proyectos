@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 
 import { PortfolioService } from '../../core/services/portfolio.service';
+import { LanguageService } from '../../core/services/language.service';
 import { ScrollAnimateDirective } from '../../shared/directives/scroll-animate.directive';
 import { TimelineItem } from './components/timeline-item/timeline-item';
 
@@ -10,13 +11,13 @@ import { TimelineItem } from './components/timeline-item/timeline-item';
   template: `
     <section class="mx-auto max-w-4xl px-4 py-16">
       <p class="text-brand-600 dark:text-brand-400 font-semibold tracking-wide text-sm">
-        Trayectoria
+        {{ i18n.t('exp.eyebrow') }}
       </p>
       <h1 class="mt-2 text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50">
-        Experiencia & Educación
+        {{ i18n.t('exp.title') }}
       </h1>
       <p class="mt-2 text-slate-600 dark:text-slate-400">
-        De estudiante de Ingeniería de Sistemas a Junior Developer en producción.
+        {{ i18n.t('exp.subtitle') }}
       </p>
 
       <div appScrollAnimate class="relative mt-12">
@@ -37,6 +38,7 @@ import { TimelineItem } from './components/timeline-item/timeline-item';
   `
 })
 export class ExperiencePage {
+  protected readonly i18n = inject(LanguageService);
   private readonly portfolio = inject(PortfolioService);
   protected readonly experiences = this.portfolio.experiences;
 }

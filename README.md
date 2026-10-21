@@ -1,6 +1,6 @@
 # Portafolio — Anderson Suárez
 
-Sitio personal con mi experiencia, proyectos y datos de contacto.
+Sitio personal con mi experiencia, proyectos y datos de contacto, en español e inglés.
 
 **En vivo:** https://titusandersonsuarez.github.io/portafolio-de-proyectos/
 
@@ -22,7 +22,8 @@ src/app/
 └── shared/      # componentes reutilizables
 ```
 
-Los proyectos y la experiencia se editan en `src/app/core/services/portfolio.service.ts`.
+Los proyectos y la experiencia (en ambos idiomas) se editan en `src/app/core/services/portfolio.service.ts`.
+Los textos de la interfaz están en `src/app/core/i18n/translations.ts`; el idioma se elige con el botón ES/EN y se recuerda en el navegador.
 
 ## Correr en local
 

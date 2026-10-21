@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
+import { LanguageService } from '../../../../core/services/language.service';
 
 @Component({
   selector: 'app-hero',
@@ -13,17 +14,17 @@ import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
 
         <div>
           <p class="text-brand-600 dark:text-brand-400 font-semibold tracking-wide">
-            Hola, soy
+            {{ i18n.t('hero.greeting') }}
           </p>
           <h1 class="mt-2 text-5xl md:text-7xl font-bold tracking-tight
                      text-slate-900 dark:text-slate-50 leading-[1.05]">
             Anderson<br/>Suárez<span class="text-brand-500">.</span>
           </h1>
           <p class="mt-6 text-xl text-slate-700 dark:text-slate-300 font-medium">
-            {{ info.role }}
+            {{ i18n.pick(info.role) }}
           </p>
           <p class="mt-3 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl">
-            {{ info.tagline }}
+            {{ i18n.pick(info.tagline) }}
           </p>
 
           <div class="mt-8 flex flex-wrap gap-3">
@@ -31,7 +32,7 @@ import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
                class="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium
                       bg-brand-600 text-white hover:bg-brand-700 transition-colors
                       shadow-sm shadow-brand-600/30">
-              Ver proyectos
+              {{ i18n.t('hero.viewProjects') }}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
               </svg>
@@ -40,7 +41,7 @@ import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
                class="inline-flex items-center px-5 py-3 rounded-lg font-medium border transition-colors
                       border-slate-300 text-slate-700 hover:bg-slate-100
                       dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800">
-              Contactar
+              {{ i18n.t('hero.contact') }}
             </a>
           </div>
 
@@ -52,10 +53,11 @@ import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
                   <polyline points="7 10 12 15 17 10"/>
                   <line x1="12" y1="15" x2="12" y2="3"/>
                 </svg>
-                Descargar CV:
+                {{ i18n.t('hero.downloadCv') }}
               </span>
               @for (cv of cvs; track cv.url; let last = $last) {
                 <a [href]="cv.url" target="_blank" rel="noopener"
+                   [attr.hreflang]="cv.lang"
                    class="text-brand-600 dark:text-brand-400 font-medium hover:underline">
                   {{ cv.label }}
                 </a>
@@ -73,7 +75,7 @@ import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
                       border-white dark:border-slate-800
                       bg-slate-100 dark:bg-slate-800">
             <img [src]="photoUrl"
-                 [alt]="'Foto de ' + info.name"
+                 [alt]="i18n.t('hero.photoAlt') + ' ' + info.name"
                  class="w-full h-full object-cover"
                  loading="eager"/>
           </div>
@@ -87,4 +89,5 @@ export class Hero {
   protected readonly info = PERSONAL_INFO;
   protected readonly photoUrl = PERSONAL_INFO.photoUrl;
   protected readonly cvs = PERSONAL_INFO.cvs;
+  protected readonly i18n = inject(LanguageService);
 }

@@ -1,8 +1,14 @@
 export const PERSONAL_INFO = {
   name: 'Anderson David Suárez Bernal',
   alias: 'Titus',
-  role: 'Full Stack Developer',
-  tagline: 'Construyendo el futuro digital de la salud desde Bucaramanga.',
+  role: {
+    es: 'Ingeniero de Sistemas · Full Stack Developer',
+    en: 'Systems Engineer · Full Stack Developer'
+  },
+  tagline: {
+    es: 'Construyo aplicaciones web para el sector salud con Java, Spring Boot y Angular.',
+    en: 'I build web applications for the healthcare sector with Java, Spring Boot and Angular.'
+  },
   location: 'Bucaramanga, Colombia',
   email: 'titusandersonsuarez@gmail.com',
   github: 'https://github.com/titusandersonsuarez',
@@ -17,10 +23,23 @@ export const PERSONAL_INFO = {
     url: 'https://www.instagram.com/6393.anderson/'
   },
   cvs: [
-    { label: 'Español', url: 'pdf/CV_Anderson_Suarez_ATS.pdf' },
-    { label: 'English', url: 'pdf/CV_2026_ENGLISH%20(2).pdf' }
+    { lang: 'es', label: 'Español', url: 'pdf/CV_Anderson_Suarez_ES.pdf' },
+    { lang: 'en', label: 'English', url: 'pdf/CV_Anderson_Suarez_EN.pdf' }
   ],
   photoUrl: 'img/imagen.png',
   yearsOfExperience: 1.5,
-  summary: `Ingeniero de Sistemas graduado de las Unidades Tecnológicas de Santander (UTS) con un año y medio de experiencia como Full Stack Developer Junior. Especializado en el diseño y desarrollo de aplicaciones web robustas y escalables para el sector salud en CreandoSoft. Cuenta con un sólido dominio técnico en tecnologías backend como Java (Spring Boot) y .NET Core, y en el frontend con Angular, complementado con experiencia en gestión de bases de datos relacionales (PostgreSQL) y despliegue de contenedores con Docker.`
+  summary: {
+    es:
+      'Ingeniero de Sistemas de las Unidades Tecnológicas de Santander (UTS) con experiencia en el desarrollo de aplicaciones ' +
+      'web escalables para el sector salud en Colombia. Especializado en backend con Java (Spring Boot) y bases de datos ' +
+      'relacionales y no relacionales, con conocimientos sólidos en frontend (Angular), reportes empresariales y prácticas ' +
+      'DevOps como Docker e integración continua. Trabajo con metodologías ágiles (Scrum) y me gusta construir software que ' +
+      'la gente usa de verdad.',
+    en:
+      'Systems Engineer from Unidades Tecnológicas de Santander (UTS) with experience developing scalable web applications ' +
+      'for the healthcare sector in Colombia. Specialized in backend development with Java (Spring Boot) and relational and ' +
+      'non-relational databases, with solid knowledge of frontend (Angular), enterprise reporting and DevOps practices such ' +
+      'as Docker and continuous integration. I work with Agile methodologies (Scrum) and enjoy building software that people ' +
+      'actually use.'
+  }
 } as const;

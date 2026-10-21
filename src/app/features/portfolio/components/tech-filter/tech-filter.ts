@@ -1,11 +1,12 @@
-import { Component, computed, input, output } from '@angular/core';
+import { Component, computed, input, output, inject } from '@angular/core';
+import { LanguageService } from '../../../../core/services/language.service';
 
 @Component({
   selector: 'app-tech-filter',
   template: `
     <div class="flex flex-wrap items-center gap-2">
       <span class="text-sm font-medium text-slate-500 dark:text-slate-400 mr-1">
-        Filtrar:
+        {{ i18n.t('pf.filter') }}
       </span>
 
       @for (tech of techs(); track tech) {
@@ -33,13 +34,14 @@ import { Component, computed, input, output } from '@angular/core';
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <path d="M18 6 6 18M6 6l12 12"/>
           </svg>
-          Limpiar
+          {{ i18n.t('pf.clear') }}
         </button>
       }
     </div>
   `
 })
 export class TechFilter {
+  protected readonly i18n = inject(LanguageService);
   readonly techs = input.required<string[]>();
   readonly active = input.required<ReadonlySet<string>>();
 
