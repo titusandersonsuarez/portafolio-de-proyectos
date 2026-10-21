@@ -8,11 +8,37 @@ import { Skill } from '../models/skill.model';
 export class PortfolioService {
   private readonly _projects = signal<Project[]>([
     {
-      id: 'commerce-flow',
-      title: 'CommerceFlow',
-      description: 'Plataforma de e-commerce con catálogo, carrito y pagos.',
-      techStack: ['Angular 17', '.NET 8', 'PostgreSQL', 'Docker'],
+      id: 'nogal',
+      title: 'Nogal — tienda y panel para fábrica de muebles',
+      description:
+        'Sistema real para una fábrica de muebles en Bogotá: tienda con catálogo, ficha con visor AR 3D, carrito y pagos con Wompi, ' +
+        'más un panel interno con dashboard de ventas, pedidos, producción e inventario. Incluye asistente con IA (Gemini) sobre el catálogo.',
+      techStack: ['.NET 9', 'React 18', 'TypeScript', 'PostgreSQL', 'Docker', 'GitHub Actions'],
       type: 'fullstack',
+      githubUrl: 'https://github.com/titusandersonsuarez/sistema_venta_muebles',
+      featured: true
+    },
+    {
+      id: 'barberhub',
+      title: 'BarberHub — SaaS multitenant de reservas',
+      description:
+        'Cada barbería tiene su página de reservas y su panel, aislados en una misma base de datos con @TenantId de Hibernate. ' +
+        'Disponibilidad real por barbero, protección contra citas dobles con bloqueo pesimista y restricción EXCLUDE de PostgreSQL, ' +
+        'roles con JWT y 17 pruebas de integración.',
+      techStack: ['Java 21', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker'],
+      type: 'fullstack',
+      githubUrl: 'https://github.com/titusandersonsuarez/Sistema-Multitenant-de-Barber-as',
+      featured: true
+    },
+    {
+      id: 'leadgym-ai',
+      title: 'LeadGym AI — agentes de IA para prospección',
+      description:
+        'Varios agentes orquestados con Semantic Kernel que buscan gimnasios locales, auditan su presencia digital ' +
+        'y redactan un correo comercial personalizado con Gemini.',
+      techStack: ['C#', '.NET 8', 'Semantic Kernel', 'Gemini API', 'Docker'],
+      type: 'backend',
+      githubUrl: 'https://github.com/titusandersonsuarez/3-find-agent-gym',
       featured: true
     },
     {
@@ -21,7 +47,7 @@ export class PortfolioService {
       description: 'Motor de juego didáctico que aplica 8 patrones GoF.',
       techStack: ['Java', 'Patrones GoF'],
       type: 'backend',
-      featured: true
+      featured: false
     },
     {
       id: 'prescriptions-app',
