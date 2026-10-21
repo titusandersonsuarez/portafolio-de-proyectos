@@ -24,11 +24,11 @@ const PROJECTS: ProjectSource[] = [
       es:
         'Cada barbería tiene su página de reservas y su panel, aislados en una misma base de datos con @TenantId de Hibernate. ' +
         'Disponibilidad real por barbero, protección contra citas dobles con bloqueo pesimista y restricción EXCLUDE de PostgreSQL, ' +
-        'roles con JWT y 17 pruebas de integración.',
+        'roles con JWT y 19 pruebas de integración.',
       en:
         'Each barbershop gets its own booking page and admin panel, isolated in a shared database with Hibernate @TenantId. ' +
         'Real per-barber availability, double-booking protection with pessimistic locking and a PostgreSQL EXCLUDE constraint, ' +
-        'JWT roles and 17 integration tests.'
+        'JWT roles and 19 integration tests.'
     },
     techStack: ['Java 21', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker'],
     type: 'fullstack',
@@ -64,7 +64,7 @@ const PROJECTS: ProjectSource[] = [
     },
     techStack: ['Next.js 15', 'React 19', 'NestJS 11', 'Prisma 6', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
     type: 'fullstack',
-    githubUrl: 'https://github.com/titusandersonsuarez/prueba-fuill-stack',
+    githubUrl: 'https://github.com/titusandersonsuarez/prescriptions-app',
     featured: true
   },
   {
@@ -80,7 +80,7 @@ const PROJECTS: ProjectSource[] = [
     },
     techStack: ['C#', '.NET 8', 'Semantic Kernel', 'Gemini API', 'Docker'],
     type: 'backend',
-    githubUrl: 'https://github.com/titusandersonsuarez/3-find-agent-gym',
+    githubUrl: 'https://github.com/titusandersonsuarez/leadgym-ai',
     featured: false
   },
   {
