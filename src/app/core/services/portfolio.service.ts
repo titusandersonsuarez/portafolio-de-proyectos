@@ -112,14 +112,16 @@ const EXPERIENCES: ExperienceSource[] = [
   {
     role: { es: 'Desarrollador Junior', en: 'Junior Developer' },
     company: 'CreandoSoft',
-    period: { es: 'Ago 2024 — Ene 2026', en: 'Aug 2024 — Jan 2026' },
+    period: { es: 'Ago 2024 — Dic 2025', en: 'Aug 2024 — Dec 2025' },
     description: {
       es:
         'Desarrollo y mantenimiento de SIE y HCE, plataforma web para EPS e IPS del sector salud en Colombia, ' +
-        'cubriendo flujos clínicos, administrativos y de facturación.',
+        'cubriendo flujos clínicos, administrativos y de facturación. Prestación de servicios de agosto a diciembre de 2024 ' +
+        'y contrato a término fijo trimestral desde enero de 2025.',
       en:
         'Development and maintenance of SIE and HCE, a web platform used by healthcare providers (EPS and IPS) in Colombia, ' +
-        'covering clinical, administrative and billing workflows.'
+        'covering clinical, administrative and billing workflows. Contractor from August to December 2024, ' +
+        'then fixed-term contract renewed quarterly from January 2025.'
     },
     type: 'work',
     techStack: ['Java', 'Spring Boot', '.NET Core', 'JavaScript', 'PostgreSQL', 'JasperReports', 'Crystal Reports', 'Git'],
