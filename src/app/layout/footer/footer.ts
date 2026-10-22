@@ -71,7 +71,7 @@ import { LanguageService } from '../../core/services/language.service';
 
         <div class="text-sm flex flex-col md:flex-row items-center justify-between gap-2
                     text-slate-500 dark:text-slate-400">
-          <p>&copy; {{ year }} {{ name }} — Bucaramanga, Colombia</p>
+          <p>&copy; {{ year }} {{ name }} — Colombia</p>
           <p class="text-slate-400 dark:text-slate-500">{{ i18n.t('footer.builtWith') }}</p>
         </div>
       </div>

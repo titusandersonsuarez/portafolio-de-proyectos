@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
     es: 'Construyo aplicaciones web para el sector salud con Java, Spring Boot y Angular.',
     en: 'I build web applications for the healthcare sector with Java, Spring Boot and Angular.'
   },
-  location: 'Bucaramanga, Colombia',
+  location: 'Colombia',
   email: 'titusandersonsuarez@gmail.com',
   github: 'https://github.com/titusandersonsuarez',
   linkedin: 'https://www.linkedin.com/in/anderson-suarez-150597239',
