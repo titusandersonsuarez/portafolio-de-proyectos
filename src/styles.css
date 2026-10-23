@@ -13,3 +13,9 @@ body {
 .dark body {
   @apply bg-slate-950 text-slate-100;
 }
+
+h1, h2, h3 { font-family: theme('fontFamily.display'); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

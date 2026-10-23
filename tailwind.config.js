@@ -7,9 +7,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif']
+        sans: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', 'Geist', 'system-ui', 'sans-serif']
       },
       colors: {
+        mint: { 400: '#3ee0b0', 500: '#16c795', 600: '#0ea47a' },
+        ink: '#14213d',
         brand: {
           50:  '#eef6ff',
           100: '#d9eaff',

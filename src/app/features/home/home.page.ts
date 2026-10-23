@@ -10,8 +10,8 @@ import { SkillsGrid } from './components/skills-grid/skills-grid';
   imports: [Hero, About, FeaturedProjects, SkillsGrid],
   template: `
     <app-hero />
-    <app-about />
     <app-featured-projects />
+    <app-about />
     <app-skills-grid />
   `
 })
