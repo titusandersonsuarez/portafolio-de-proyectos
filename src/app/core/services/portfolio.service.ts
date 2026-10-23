@@ -74,6 +74,7 @@ const PROJECTS: ProjectSource[] = [
     githubUrl: 'https://github.com/titusandersonsuarez/sistema_venta_muebles',
     imageUrl: 'img/projects/nogal.webp',
     imageAlt: 'Tienda en línea de Nogal con el catálogo de muebles',
+    videoUrl: 'video/nogal_demo.mp4',
     featured: true
   },
   {
