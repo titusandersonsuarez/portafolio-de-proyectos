@@ -44,12 +44,12 @@ const PROJECTS: ProjectSource[] = [
     description: {
       es:
         'Reserva en línea con disponibilidad según la duración de cada tratamiento y protección contra citas dobles (transacción SERIALIZABLE + índice único parcial). ' +
-        'Panel con historia clínica y odontograma FDI, y avisos por WhatsApp al confirmar o cancelar mediante Twilio, con cola outbox y reintentos. ' +
-        'Clean Architecture y 32 pruebas.',
+        'Historia clínica inmutable con odontograma FDI y auditoría de cada consulta, roles para recepción y odontólogos, ' +
+        'y avisos por WhatsApp vía Twilio con cola outbox y reintentos. Listo para producción con HTTPS y respaldos diarios; 45 pruebas.',
       en:
         'Online booking with availability based on each treatment\'s duration and double-booking protection (SERIALIZABLE transaction + partial unique index). ' +
-        'Admin panel with dental records and an FDI odontogram, plus WhatsApp notices on confirm or cancel via Twilio, using an outbox queue with retries. ' +
-        'Clean Architecture and 32 tests.'
+        'Immutable dental records with an FDI odontogram and an audit trail of every access, roles for front desk and dentists, ' +
+        'and WhatsApp notices via Twilio with an outbox queue and retries. Production-ready with HTTPS and daily backups; 45 tests.'
     },
     techStack: ['.NET 8', 'ASP.NET Core', 'Angular', 'PostgreSQL', 'Twilio', 'Docker'],
     type: 'fullstack',
