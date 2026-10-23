@@ -33,6 +33,8 @@ const PROJECTS: ProjectSource[] = [
     techStack: ['Java 21', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker'],
     type: 'fullstack',
     githubUrl: 'https://github.com/titusandersonsuarez/Sistema-Multitenant-de-Barber-as',
+    imageUrl: 'img/projects/barberhub.webp',
+    imageAlt: 'Página principal de BarberHub con la vista previa de reservas de una barbería',
     featured: true
   },
   {
@@ -49,6 +51,8 @@ const PROJECTS: ProjectSource[] = [
     techStack: ['.NET 9', 'React 18', 'TypeScript', 'PostgreSQL', 'Docker', 'GitHub Actions'],
     type: 'fullstack',
     githubUrl: 'https://github.com/titusandersonsuarez/sistema_venta_muebles',
+    imageUrl: 'img/projects/nogal.webp',
+    imageAlt: 'Tienda en línea de Nogal con el catálogo de muebles',
     featured: true
   },
   {
@@ -65,6 +69,8 @@ const PROJECTS: ProjectSource[] = [
     techStack: ['Next.js 15', 'React 19', 'NestJS 11', 'Prisma 6', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
     type: 'fullstack',
     githubUrl: 'https://github.com/titusandersonsuarez/prescriptions-app',
+    imageUrl: 'img/projects/prescriptions-app.webp',
+    imageAlt: 'Dashboard de administración del sistema de prescripciones con métricas de recetas',
     featured: true
   },
   {
