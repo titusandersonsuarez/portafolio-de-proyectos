@@ -80,6 +80,15 @@ const TYPE_LABEL: Record<ProjectType, TranslationKey> = {
             </ul>
           </div>
 
+          @if (p.videoUrl) {
+            <video [src]="p.videoUrl" [poster]="p.imageUrl ?? ''" controls preload="none" playsinline
+                   width="1920" height="1080" [attr.aria-label]="'Video demo de ' + p.title"
+                   class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-900"></video>
+          } @else if (p.imageUrl) {
+            <img [src]="p.imageUrl" [alt]="p.imageAlt ?? p.title" width="1200" height="750" loading="lazy"
+                 class="w-full rounded-lg border border-slate-200 dark:border-slate-800"/>
+          }
+
           @if (p.type === 'embeddable' && safeEmbedUrl()) {
             <div>
               <h3 class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 mb-2">

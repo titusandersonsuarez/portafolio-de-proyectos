@@ -32,7 +32,11 @@ import { PortfolioService } from '../../../../core/services/portfolio.service';
                 <span class="block mt-2 text-base md:text-lg font-sans text-slate-500 dark:text-slate-400" style="font-variation-settings:normal">
                   {{ subtitle(p.title) }}
                 </span>
-                @if (p.imageUrl) {
+                @if (p.videoUrl) {
+                  <video [src]="p.videoUrl" [poster]="p.imageUrl ?? ''" controls preload="none" playsinline
+                         width="1920" height="1080" [attr.aria-label]="'Video demo de ' + shortTitle(p.title)"
+                         class="mt-6 w-full rounded-xl border border-slate-300 dark:border-slate-800 bg-ink"></video>
+                } @else if (p.imageUrl) {
                   <img [src]="p.imageUrl" [alt]="p.imageAlt ?? p.title" width="1200" height="750" loading="lazy"
                        class="shot mt-6 w-full rounded-xl border border-slate-300 dark:border-slate-800"/>
                 }

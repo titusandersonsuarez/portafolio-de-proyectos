@@ -35,6 +35,7 @@ const PROJECTS: ProjectSource[] = [
     githubUrl: 'https://github.com/titusandersonsuarez/Sistema-Multitenant-de-Barber-as',
     imageUrl: 'img/projects/barberhub.webp',
     imageAlt: 'Página principal de BarberHub con la vista previa de reservas de una barbería',
+    videoUrl: 'video/barberhub_demo.mp4',
     featured: true
   },
   {
