@@ -39,6 +39,27 @@ const PROJECTS: ProjectSource[] = [
     featured: true
   },
   {
+    id: 'clinica-dental',
+    title: { es: 'Clínica Dental Alameda — citas e historia clínica', en: 'Clínica Dental Alameda — appointments and dental records' },
+    description: {
+      es:
+        'Reserva en línea con disponibilidad según la duración de cada tratamiento y protección contra citas dobles (transacción SERIALIZABLE + índice único parcial). ' +
+        'Panel con historia clínica y odontograma FDI, y avisos por WhatsApp al confirmar o cancelar mediante Twilio, con cola outbox y reintentos. ' +
+        'Clean Architecture y 32 pruebas.',
+      en:
+        'Online booking with availability based on each treatment\'s duration and double-booking protection (SERIALIZABLE transaction + partial unique index). ' +
+        'Admin panel with dental records and an FDI odontogram, plus WhatsApp notices on confirm or cancel via Twilio, using an outbox queue with retries. ' +
+        'Clean Architecture and 32 tests.'
+    },
+    techStack: ['.NET 8', 'ASP.NET Core', 'Angular', 'PostgreSQL', 'Twilio', 'Docker'],
+    type: 'fullstack',
+    githubUrl: 'https://github.com/titusandersonsuarez/clinica-dental-alameda',
+    imageUrl: 'img/projects/clinica-dental.webp',
+    imageAlt: 'Portada de Clínica Dental Alameda con el botón para reservar cita y un odontograma de la arcada superior',
+    videoUrl: 'video/clinica_dental_demo.mp4',
+    featured: true
+  },
+  {
     id: 'gasruta',
     title: { es: 'GasRuta — distribución de cilindros de gas', en: 'GasRuta — gas cylinder distribution' },
     description: {
