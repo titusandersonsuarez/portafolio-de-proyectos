@@ -14,6 +14,9 @@ type SubmitStatus = 'idle' | 'success' | 'error';
           class="p-6 rounded-xl border shadow-sm space-y-4
                  bg-white border-slate-200
                  dark:bg-slate-900 dark:border-slate-800">
+      <!-- Trampa para bots: Formspree descarta los envíos que llenan _gotcha. Invisible para personas. -->
+      <input type="text" formControlName="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
 
       <div>
         <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">
@@ -117,7 +120,8 @@ export class ContactForm {
     name:    ['', [Validators.required, Validators.minLength(2)]],
     email:   ['', [Validators.required, Validators.email]],
     subject: ['', [Validators.required]],
-    message: ['', [Validators.required, Validators.minLength(10)]]
+    message: ['', [Validators.required, Validators.minLength(10)]],
+    _gotcha: ['']
   });
 
   protected readonly submitting = signal(false);
