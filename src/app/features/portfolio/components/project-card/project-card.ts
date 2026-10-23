@@ -36,6 +36,10 @@ const TYPE_LABEL: Record<ProjectType, TranslationKey> = {
         }
       </header>
 
+      @if (project().imageUrl) {
+        <img [src]="project().imageUrl" [alt]="project().imageAlt ?? project().title" width="1200" height="750" loading="lazy"
+             class="mt-3 w-full rounded-lg border border-slate-200 dark:border-slate-800"/>
+      }
       <h3 class="mt-3 font-semibold text-slate-900 dark:text-slate-100
                  group-hover:text-brand-600 dark:group-hover:text-brand-400
                  transition-colors">

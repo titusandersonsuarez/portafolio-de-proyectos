@@ -9,5 +9,8 @@ export interface Project {
   embedPath?: string;
   githubUrl?: string;
   demoUrl?: string;
+  /** Captura de la app (ruta relativa a public/). */
+  imageUrl?: string;
+  imageAlt?: string;
   featured: boolean;
 }

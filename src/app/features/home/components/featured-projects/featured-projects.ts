@@ -32,6 +32,10 @@ import { PortfolioService } from '../../../../core/services/portfolio.service';
                 <span class="block mt-2 text-base md:text-lg font-sans text-slate-500 dark:text-slate-400" style="font-variation-settings:normal">
                   {{ subtitle(p.title) }}
                 </span>
+                @if (p.imageUrl) {
+                  <img [src]="p.imageUrl" [alt]="p.imageAlt ?? p.title" width="1200" height="750" loading="lazy"
+                       class="shot mt-6 w-full rounded-xl border border-slate-300 dark:border-slate-800"/>
+                }
               </h3>
               <div>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed">{{ p.description }}</p>
@@ -58,6 +62,8 @@ import { PortfolioService } from '../../../../core/services/portfolio.service';
   styles: [`
     .row-title { font-variation-settings: 'wght' 560, 'opsz' 96; transition: font-variation-settings .45s cubic-bezier(.2,.7,.2,1); }
     .row:hover .row-title, .row:focus-within .row-title { font-variation-settings: 'wght' 800, 'opsz' 96; }
+    .shot { transition: transform .5s cubic-bezier(.2,.7,.2,1); transform-origin: left center; }
+    .row:hover .shot { transform: scale(1.015); }
     .row { opacity: 0; transform: translateY(28px); }
     ul.is-in .row {
       opacity: 1; transform: none;

@@ -72,16 +72,20 @@ const PROJECTS: ProjectSource[] = [
     title: { es: 'LeadGym AI — agentes de IA para prospección', en: 'LeadGym AI — AI agents for lead generation' },
     description: {
       es:
-        'Varios agentes orquestados con Semantic Kernel que buscan gimnasios locales, auditan su presencia digital ' +
-        'y redactan un correo comercial personalizado con Gemini.',
+        'Tres agentes orquestados con Semantic Kernel buscan gimnasios locales, auditan cómo reciben reservas y redactan ' +
+        'un correo comercial con Gemini. Interfaz web con el progreso de los agentes en vivo (Server-Sent Events) y ' +
+        'revisión de cada borrador antes de enviarlo.',
       en:
-        'Several agents orchestrated with Semantic Kernel that find local gyms, audit their online presence ' +
-        'and write a personalized sales email with Gemini.'
+        'Three agents orchestrated with Semantic Kernel find local gyms, audit how they take bookings and write ' +
+        'a sales email with Gemini. Web UI that streams the agents\' progress live (Server-Sent Events) and lets ' +
+        'you review each draft before sending it.'
     },
-    techStack: ['C#', '.NET 8', 'Semantic Kernel', 'Gemini API', 'Docker'],
-    type: 'backend',
+    techStack: ['C#', '.NET 8', 'ASP.NET Core', 'Semantic Kernel', 'Gemini API', 'Docker'],
+    type: 'fullstack',
     githubUrl: 'https://github.com/titusandersonsuarez/leadgym-ai',
-    featured: false
+    imageUrl: 'img/projects/leadgym.webp',
+    imageAlt: 'Interfaz de LeadGym AI con los tres agentes y borradores de correo para revisar',
+    featured: true
   },
   {
     id: 'game-engine',
