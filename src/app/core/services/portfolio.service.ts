@@ -38,6 +38,26 @@ const PROJECTS: ProjectSource[] = [
     featured: true
   },
   {
+    id: 'gasruta',
+    title: { es: 'GasRuta — distribución de cilindros de gas', en: 'GasRuta — gas cylinder distribution' },
+    description: {
+      es:
+        'Pedidos con total automático, ruta de reparto ordenada en el mapa (vecino más cercano + 2-opt) e inventario como kardex: ' +
+        'llenos, vacíos y cilindros prestados a cada cliente se calculan con cada movimiento. La entrega descuenta stock en la misma ' +
+        'transacción vía evento de dominio y bloqueo pesimista. App del repartidor instalable (PWA).',
+      en:
+        'Orders with automatic totals, delivery route ordered on the map (nearest neighbor + 2-opt) and kardex-style inventory: ' +
+        'full, empty and loaned cylinders per customer are computed from every movement. Delivery updates stock in the same ' +
+        'transaction through a domain event and pessimistic locking. Installable driver app (PWA).'
+    },
+    techStack: ['Java 21', 'Spring Boot', 'Angular', 'PostgreSQL', 'Leaflet', 'Docker'],
+    type: 'fullstack',
+    githubUrl: 'https://github.com/titusandersonsuarez/gasruta',
+    imageUrl: 'img/projects/gasruta.webp',
+    imageAlt: 'Panel de GasRuta con las ventas del día, el inventario dibujado como cilindros y los pedidos por entregar',
+    featured: true
+  },
+  {
     id: 'nogal',
     title: { es: 'Nogal — tienda y panel para fábrica de muebles', en: 'Nogal — store and back office for a furniture factory' },
     description: {
