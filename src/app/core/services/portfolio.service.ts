@@ -61,22 +61,25 @@ const PROJECTS: ProjectSource[] = [
   },
   {
     id: 'gasruta',
-    title: { es: 'GasRuta — distribución de cilindros de gas', en: 'GasRuta — gas cylinder distribution' },
+    title: { es: 'GasRuta — SaaS para distribuidoras de gas', en: 'GasRuta — SaaS for gas cylinder distributors' },
     description: {
       es:
-        'Pedidos con total automático, ruta de reparto ordenada en el mapa (vecino más cercano + 2-opt) e inventario como kardex: ' +
-        'llenos, vacíos y cilindros prestados a cada cliente se calculan con cada movimiento. La entrega descuenta stock en la misma ' +
-        'transacción vía evento de dominio y bloqueo pesimista. App del repartidor instalable (PWA).',
+        'SaaS multitenant en uso real: el conductor factura en la ruta aunque no haya señal (talonario digital por camión, PWA con cola ' +
+        'offline sin duplicados), la oficina cuadra la caja y lleva cartera e inventario como kardex (llenos, vacíos y cilindros prestados). ' +
+        'Facturas inmutables con notas crédito, costo congelado por venta para la ganancia, rutas en el mapa y app del cliente que sigue ' +
+        'el camión con aviso Web Push cuando está cerca.',
       en:
-        'Orders with automatic totals, delivery route ordered on the map (nearest neighbor + 2-opt) and kardex-style inventory: ' +
-        'full, empty and loaned cylinders per customer are computed from every movement. Delivery updates stock in the same ' +
-        'transaction through a domain event and pessimistic locking. Installable driver app (PWA).'
+        'Multitenant SaaS in real use: drivers invoice on the road even without signal (per-truck digital invoice book, PWA with an ' +
+        'offline queue that never duplicates), the office reconciles cash and keeps receivables and kardex-style inventory (full, empty ' +
+        'and loaned cylinders). Immutable invoices with credit notes, cost frozen per sale for profit, map routes and a customer app ' +
+        'that tracks the truck with a Web Push alert when it is near.'
     },
-    techStack: ['Java 21', 'Spring Boot', 'Angular', 'PostgreSQL', 'Leaflet', 'Docker'],
+    techStack: ['Java 21', 'Spring Boot', 'Angular', 'PostgreSQL', 'PWA', 'Multitenant', 'Docker'],
     type: 'fullstack',
     privateCode: true,
     imageUrl: 'img/projects/gasruta.webp',
     imageAlt: 'Panel de GasRuta con las ventas del día, el inventario dibujado como cilindros y los pedidos por entregar',
+    videoUrl: 'video/gasruta_demo.mp4',
     featured: true
   },
   {
