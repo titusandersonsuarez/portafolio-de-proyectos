@@ -92,6 +92,10 @@ export const TRANSLATIONS = {
   },
   'pf.panel.source': { es: 'Código fuente', en: 'Source code' },
   'pf.panel.openDemo': { es: 'Abrir demo', en: 'Open demo' },
+  'pf.panel.private': {
+    es: 'Producto comercial en uso: el código es privado. Escríbeme y te muestro una demo.',
+    en: 'Commercial product in use: source code is private. Reach out and I will show you a demo.'
+  },
   'pf.panel.noLinks': { es: 'Proyecto académico sin código publicado.', en: 'Academic project, code not published.' },
 
   // Contacto

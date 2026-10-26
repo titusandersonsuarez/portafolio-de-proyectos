@@ -14,5 +14,7 @@ export interface Project {
   imageAlt?: string;
   /** Video corto de la app funcionando (ruta relativa a public/). */
   videoUrl?: string;
+  /** Producto comercial: el código no se publica, se ofrece una demo. */
+  privateCode?: boolean;
   featured: boolean;
 }

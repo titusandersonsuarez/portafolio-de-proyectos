@@ -74,7 +74,7 @@ const PROJECTS: ProjectSource[] = [
     },
     techStack: ['Java 21', 'Spring Boot', 'Angular', 'PostgreSQL', 'Leaflet', 'Docker'],
     type: 'fullstack',
-    githubUrl: 'https://github.com/titusandersonsuarez/gasruta',
+    privateCode: true,
     imageUrl: 'img/projects/gasruta.webp',
     imageAlt: 'Panel de GasRuta con las ventas del día, el inventario dibujado como cilindros y los pedidos por entregar',
     featured: true

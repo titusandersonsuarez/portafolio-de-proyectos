@@ -141,7 +141,11 @@ const TYPE_LABEL: Record<ProjectType, TranslationKey> = {
               </svg>
             </a>
           }
-          @if (!p.githubUrl && !p.demoUrl) {
+          @if (p.privateCode) {
+            <p class="text-sm text-slate-500 dark:text-slate-400 italic">
+              {{ i18n.t('pf.panel.private') }}
+            </p>
+          } @else if (!p.githubUrl && !p.demoUrl) {
             <p class="text-sm text-slate-400 dark:text-slate-500 italic">
               {{ i18n.t('pf.panel.noLinks') }}
             </p>
