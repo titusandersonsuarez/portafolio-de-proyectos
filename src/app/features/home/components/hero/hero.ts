@@ -3,14 +3,18 @@ import { RouterLink } from '@angular/router';
 
 import { PERSONAL_INFO } from '../../../../core/constants/personal-info';
 import { LanguageService } from '../../../../core/services/language.service';
+import { AiCore } from '../../../../shared/components/ai-core/ai-core';
 import { KineticName } from '../../../../shared/components/kinetic-name/kinetic-name';
 
 @Component({
   selector: 'app-hero',
-  imports: [RouterLink, KineticName],
+  imports: [RouterLink, KineticName, AiCore],
   template: `
     <section class="relative overflow-hidden">
-      <div class="mx-auto max-w-6xl px-4 pt-14 pb-20 md:pt-20 md:pb-28 min-h-[calc(100svh-4rem)] flex flex-col justify-center">
+      @defer (on idle) {
+        <app-ai-core class="absolute inset-0 z-0" />
+      }
+      <div class="relative z-10 mx-auto max-w-6xl px-4 pt-14 pb-20 md:pt-20 md:pb-28 min-h-[calc(100svh-4rem)] flex flex-col justify-center">
 
         <div class="flex items-center gap-4">
           <div class="relative w-16 h-16 md:w-20 md:h-20 shrink-0">
