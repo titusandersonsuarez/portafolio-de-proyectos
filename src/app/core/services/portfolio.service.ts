@@ -95,7 +95,7 @@ const PROJECTS: ProjectSource[] = [
     },
     techStack: ['.NET 9', 'React 18', 'TypeScript', 'PostgreSQL', 'Docker', 'GitHub Actions'],
     type: 'fullstack',
-    githubUrl: 'https://github.com/titusandersonsuarez/sistema_venta_muebles',
+    privateCode: true,
     imageUrl: 'img/projects/nogal.webp',
     imageAlt: 'Tienda en línea de Nogal con el catálogo de muebles',
     videoUrl: 'video/nogal_demo.mp4',
@@ -165,6 +165,38 @@ const PROJECTS: ProjectSource[] = [
 ];
 
 const EXPERIENCES: ExperienceSource[] = [
+  {
+    role: { es: 'Desarrollador Full Stack independiente', en: 'Freelance Full Stack Developer' },
+    company: 'Nogal · GasRuta',
+    period: { es: 'Abr 2026 — Presente', en: 'Apr 2026 — Present' },
+    description: {
+      es:
+        'Diseño, desarrollo y despliegue de sistemas a la medida para negocios reales en Colombia, ' +
+        'desde el levantamiento de requisitos con el cliente hasta la puesta en producción y el soporte.',
+      en:
+        'Design, development and deployment of custom systems for real businesses in Colombia, ' +
+        'from gathering requirements with the client to production rollout and support.'
+    },
+    type: 'work',
+    techStack: ['Java 21', 'Spring Boot', 'Angular', '.NET 9', 'React', 'PostgreSQL', 'PWA', 'Docker'],
+    systems: ['Nogal', 'GasRuta'],
+    achievements: {
+      es: [
+        'Nogal: tienda en línea y panel interno para una fábrica de muebles en Bogotá, con catálogo, visor AR 3D, pagos con Wompi, ' +
+          'dashboard de ventas, pedidos, producción e inventario, y asistente con IA (Gemini).',
+        'GasRuta: SaaS multitenant para distribuidoras de gas en uso diario, con facturación en ruta sin señal (PWA offline), ' +
+          'cartera, inventario tipo kardex, rutas en mapa y app para el cliente.',
+        'Gestión completa del producto: requisitos con el cliente, arquitectura, despliegue con Docker y soporte en producción.'
+      ],
+      en: [
+        'Nogal: online store and back office for a furniture factory in Bogotá, with catalog, 3D AR viewer, Wompi payments, ' +
+          'sales, orders, production and inventory dashboards, and an AI assistant (Gemini).',
+        'GasRuta: multitenant SaaS for gas cylinder distributors in daily use, with on-the-road invoicing without signal (offline PWA), ' +
+          'receivables, kardex-style inventory, map routes and a customer app.',
+        'End-to-end ownership: client requirements, architecture, Docker deployment and production support.'
+      ]
+    }
+  },
   {
     role: { es: 'Desarrollador Junior', en: 'Junior Developer' },
     company: 'CreandoSoft',

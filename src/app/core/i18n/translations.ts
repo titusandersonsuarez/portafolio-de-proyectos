@@ -50,8 +50,8 @@ export const TRANSLATIONS = {
   'exp.eyebrow': { es: 'Trayectoria', en: 'Career' },
   'exp.title': { es: 'Experiencia y educación', en: 'Experience & education' },
   'exp.subtitle': {
-    es: 'Ingeniero de Sistemas con experiencia en software para el sector salud.',
-    en: 'Systems Engineer with experience building healthcare software.'
+    es: 'Ingeniero de Sistemas con 2 años de experiencia: software para el sector salud y sistemas propios en producción.',
+    en: 'Systems Engineer with 2 years of experience: healthcare software and my own systems in production.'
   },
   'exp.work': { es: 'Trabajo', en: 'Work' },
   'exp.education': { es: 'Educación', en: 'Education' },

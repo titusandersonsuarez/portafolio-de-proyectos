@@ -27,17 +27,17 @@ export const PERSONAL_INFO = {
     { lang: 'en', label: 'English', url: 'pdf/CV_Anderson_Suarez_EN.pdf' }
   ],
   photoUrl: 'img/profile.webp',
-  yearsOfExperience: 1.5,
+  yearsOfExperience: 2,
   summary: {
     es:
-      'Ingeniero de Sistemas de las Unidades Tecnológicas de Santander (UTS) con experiencia en el desarrollo de aplicaciones ' +
-      'web escalables para el sector salud en Colombia. Especializado en backend con Java (Spring Boot) y bases de datos ' +
+      'Ingeniero de Sistemas de las Unidades Tecnológicas de Santander (UTS) y 2 años de experiencia desarrollando aplicaciones ' +
+      'web en producción: software para el sector salud y sistemas propios en uso real para negocios en Colombia. Especializado en backend con Java (Spring Boot) y bases de datos ' +
       'relacionales y no relacionales, con conocimientos sólidos en frontend (Angular), reportes empresariales y prácticas ' +
       'DevOps como Docker e integración continua. Trabajo con metodologías ágiles (Scrum) y me gusta construir software que ' +
       'la gente usa de verdad.',
     en:
-      'Systems Engineer from Unidades Tecnológicas de Santander (UTS) with experience developing scalable web applications ' +
-      'for the healthcare sector in Colombia. Specialized in backend development with Java (Spring Boot) and relational and ' +
+      'Systems Engineer from Unidades Tecnológicas de Santander (UTS) with 2 years of experience building web applications ' +
+      'in production: healthcare software and my own systems in real use by businesses in Colombia. Specialized in backend development with Java (Spring Boot) and relational and ' +
       'non-relational databases, with solid knowledge of frontend (Angular), enterprise reporting and DevOps practices such ' +
       'as Docker and continuous integration. I work with Agile methodologies (Scrum) and enjoy building software that people ' +
       'actually use.'

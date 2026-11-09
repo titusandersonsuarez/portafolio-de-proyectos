@@ -28,7 +28,7 @@ import { ScrollAnimateDirective } from '../../../../shared/directives/scroll-ani
 
         <div class="grid grid-cols-2 md:grid-cols-1 gap-4 content-start">
           <div class="p-5 rounded-xl border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800">
-            <p class="text-3xl font-bold text-brand-600 dark:text-brand-400">~{{ info.yearsOfExperience }}</p>
+            <p class="text-3xl font-bold text-brand-600 dark:text-brand-400">{{ info.yearsOfExperience }}+</p>
             <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">{{ i18n.t('about.years') }}</p>
           </div>
           <div class="p-5 rounded-xl border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800">
