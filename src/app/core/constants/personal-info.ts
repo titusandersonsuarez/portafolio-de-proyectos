@@ -26,7 +26,7 @@ export const PERSONAL_INFO = {
     { lang: 'es', label: 'Español', url: 'pdf/CV_Anderson_Suarez_ES.pdf' },
     { lang: 'en', label: 'English', url: 'pdf/CV_Anderson_Suarez_EN.pdf' }
   ],
-  photoUrl: 'img/imagen.png',
+  photoUrl: 'img/profile.webp',
   yearsOfExperience: 1.5,
   summary: {
     es:
