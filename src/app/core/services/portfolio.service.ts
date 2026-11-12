@@ -18,6 +18,36 @@ type ExperienceSource = Omit<Experience, 'role' | 'period' | 'description' | 'ac
 
 const PROJECTS: ProjectSource[] = [
   {
+    id: 'retos-deportivos',
+    title: {
+      es: 'Retos Deportivos — retos, torneos y canchas',
+      en: 'Retos Deportivos — challenges, tournaments and courts'
+    },
+    description: {
+      es:
+        'Plataforma web y móvil multideporte: un jugador reta a otro, el resultado se confirma entre los dos y el Elo por deporte ' +
+        'mueve su liga. Incluye retos abiertos que se envían por WhatsApp y acepta el primero que quiera, chat en tiempo real, ' +
+        'búsqueda de canchas y jugadores cerca, reserva de turnos con pago Bre-B y torneos con llave sembrada por Elo. ' +
+        'El API es un monolito modular (Spring Modulith) cuyo build falla si un módulo invade otro; cada cambio y su evento se ' +
+        'guardan en la misma transacción (outbox) y viajan por Redis al gateway de Socket.io, con push de Expo para quien no ' +
+        'tiene la app abierta. La web (Next.js) y la app (Expo) comparten el cliente tipado y el contrato de eventos.',
+      en:
+        'Multi-sport web and mobile platform: one player challenges another, both confirm the result and the per-sport Elo moves ' +
+        'their league. It includes open challenges shared over WhatsApp that the first taker accepts, real-time chat, nearby ' +
+        'courts and players, court booking with Bre-B payments and tournaments with an Elo-seeded bracket. ' +
+        'The API is a modular monolith (Spring Modulith) whose build fails if one module reaches into another; every change and ' +
+        'its event are written in the same transaction (outbox) and travel through Redis to the Socket.io gateway, with Expo push ' +
+        'for players who do not have the app open. Web (Next.js) and mobile (Expo) share the typed client and the event contract.'
+    },
+    techStack: ['Java 25', 'Spring Boot', 'Next.js 16', 'Expo', 'Socket.io', 'PostgreSQL', 'MongoDB', 'Redis', 'Docker'],
+    type: 'fullstack',
+    privateCode: true,
+    imageUrl: 'img/projects/retos-deportivos.webp',
+    imageAlt: 'Inicio de Retos Deportivos con el rating del jugador, su liga y los retos pendientes',
+    videoUrl: 'video/retos_deportivos_demo.mp4',
+    featured: true
+  },
+  {
     id: 'barberhub',
     title: { es: 'BarberHub — SaaS multitenant de reservas', en: 'BarberHub — multitenant booking SaaS' },
     description: {
